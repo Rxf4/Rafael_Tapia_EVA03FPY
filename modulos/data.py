@@ -43,6 +43,43 @@ def exportar_pinturas():
         for pintura in inventario['pinturas']:
             f.write(f'codigo: {pintura['codigo']}, nombre:{pintura['nombre']}, {pintura['descripcion']}, cantidad:{pintura['cantidad']}, stock:{pintura['stock']}')
 
+def main():
+    while True:
+        print("Opciones:")
+        print("1. Ver Listado de Pinturas")
+        print("2. Buscar Pintura")
+        print("3. Agregar Pintura")
+        print("4. Eliminar Pintura")
+        print("5. Exportar Pinturas")
+        print("6. Salir")
+        
+        opcion = input("Ingrese una opción: ")
+        
+        if opcion == "1":
+            ver_listado_de_pinturas()
+        elif opcion == "2":
+            codigo_o_nombre = input("Ingrese el código o nombre de la pintura: ")
+            buscar_pintura(codigo_o_nombre)
+        elif opcion == "3":
+            codigo = input("Ingrese el código de la pintura: ")
+            nombre = input("Ingrese el nombre de la pintura: ")
+            descripcion = input("Ingrese la descripción de la pintura: ")
+            cantidad = int(input("Ingrese la cantidad de la pintura: "))
+            agregar_pintura(codigo, nombre, descripcion, cantidad)
+        elif opcion == "4":
+            codigo = input("Ingrese el código de la pintura: ")
+            eliminar_pintura(codigo)
+        elif opcion == "5":
+            exportar_pinturas()
+        elif opcion == "6":
+            print("Adiós!")
+            break
+        else:
+            print("Opción inválida. Intente nuevamente.")
+
+if __name__ == "__main__":
+    main()
+
 
 
 
